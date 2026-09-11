@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function SidebarNav() {
+export default function Navbar() {
   const pathname = usePathname();
 
   const navItems = [
@@ -15,7 +15,7 @@ export default function SidebarNav() {
   ];
 
   return (
-    <nav className="flex flex-col gap-6 w-full text-center mt-4 animate-popup delay-100">
+    <nav className="flex flex-col gap-6 w-full text-center mt-4 px-4">
       {navItems.map((item) => {
         const isActive = pathname === item.path;
         
@@ -23,7 +23,7 @@ export default function SidebarNav() {
           <Link 
             key={item.name} 
             href={item.path} 
-            className={`font-bold tracking-widest text-xs uppercase transition-all duration-300 ${
+            className={`block w-full py-1 font-bold tracking-widest text-xs uppercase transition-all duration-300 ${
               isActive 
                 ? "text-red-600 drop-shadow-[0_0_8px_rgba(220,38,38,0.5)] scale-105" 
                 : "text-zinc-400 hover:text-white"
